@@ -22,6 +22,20 @@
       <input type="number" id="y-2" name="y-2" required />
     </div>
     <button title="Draw" type="button" onclick="handleDrawEvent()">Draw</button>
+    <div>
+      Operation:
+      <select id="op-select">
+        <option value="add">Add</option>
+        <option value="sub">Subtract</option>
+        <option value="mul">Multiply</option>
+        <option value="div">Divide</option>
+        <option value="magnitude">Magnitude</option>
+        <option value="normalize">Normalize</option>
+      </select>
+      Scalar:
+      <input type="number" id="scalar" />
+      <button type="button" onclick="handleDrawOperationEvent()">Draw</button>
+    </div>
     <script src="/asgn0/lib/cuon-matrix-cse160.js"></script>
     <script src="asgn0.js"></script>
   </body>

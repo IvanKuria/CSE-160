@@ -41,6 +41,59 @@ function handleDrawEvent() {
     drawVector(v2, "blue")
 }
 
+function handleDrawOperationEvent() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // clears canvas
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const x = document.getElementById("x").value; // x val
+    const y = document.getElementById("y").value; // y val
+    const x2 = document.getElementById("x-2").value; // x-2 val
+    const y2 = document.getElementById("y-2").value; // y-2 val
+
+    var v1 = new Vector3([x, y, 0]);
+    var v2 = new Vector3([x2, y2, 0]);
+    drawVector(v1, "red");
+    drawVector(v2, "blue");
+
+    var op = document.getElementById("op-select").value;
+    var scalar = document.getElementById("scalar").value;
+
+    if (op == "add") {
+        var v3 = new Vector3([x, y, 0]);
+        v3.add(v2);
+        drawVector(v3, "green");
+    } else if (op == "sub") {
+        var v3 = new Vector3([x, y, 0]);
+        v3.sub(v2);
+        drawVector(v3, "green");
+    } else if (op == "mul") {
+        var v3 = new Vector3([x, y, 0]);
+        var v4 = new Vector3([x2, y2, 0]);
+        v3.mul(scalar);
+        v4.mul(scalar);
+        drawVector(v3, "green");
+        drawVector(v4, "green");
+    } else if (op == "div") {
+        var v3 = new Vector3([x, y, 0]);
+        var v4 = new Vector3([x2, y2, 0]);
+        v3.div(scalar);
+        v4.div(scalar);
+        drawVector(v3, "green");
+        drawVector(v4, "green");
+    } else if (op == "magnitude") {
+        console.log("Magnitude v1: " + v1.magnitude());
+        console.log("Magnitude v2: " + v2.magnitude());
+    } else if (op == "normalize") {
+        var v3 = new Vector3([x, y, 0]);
+        var v4 = new Vector3([x2, y2, 0]);
+        v3.normalize();
+        v4.normalize();
+        drawVector(v3, "green");
+        drawVector(v4, "green");
+    }
+}
+
 // main();
 
 // sources: 

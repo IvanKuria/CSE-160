@@ -44,10 +44,11 @@ class Vector3 {
       * @return this
       */
     add(other) {
-        // Insert your code here.
-        // This function should change this vector (this.elements) and not create a new vector.
+        this.elements[0] += other.elements[0];
+        this.elements[1] += other.elements[1];
+        this.elements[2] += other.elements[2];
 
-        // Don't delete the return statement.
+        // Don't delete the return statement. 
         return this;
     };
 
@@ -56,10 +57,10 @@ class Vector3 {
       * @return this
       */
     sub(other) {
-        // Insert your code here.
-        // This function should change this vector (this.elements) and not create a new vector.
+        this.elements[0] -= other.elements[0];
+        this.elements[1] -= other.elements[1];
+        this.elements[2] -= other.elements[2];
 
-        // Don't delete the return statement.
         return this;
     };
 
@@ -68,10 +69,10 @@ class Vector3 {
       * @return this
       */
     div(scalar) {
-        // Insert your code here.
-        // This function should change this vector (this.elements) and not create a new vector.
+        this.elements[0] /= scalar;
+        this.elements[1] /= scalar;
+        this.elements[2] /= scalar;
 
-        // Don't delete the return statement.
         return this;
     };
 
@@ -80,10 +81,10 @@ class Vector3 {
       * @return this
       */
     mul(scalar) {
-        // Insert your code here.
-        // This function should change this vector (this.elements) and not create a new vector.
+        this.elements[0] *= scalar;
+        this.elements[1] *= scalar;
+        this.elements[2] *= scalar;
 
-        // Don't delete the return statement.
         return this;
     };
 
@@ -117,10 +118,8 @@ class Vector3 {
       * @return scalar
       */
     magnitude() {
-        // Insert your code here.
-        let m = 0; // Modify this line to calculate this vector's magnitude.
+        let m = Math.sqrt(this.elements[0] ** 2 + this.elements[1] ** 2 + this.elements[2] ** 2);
 
-        // Don't delete the return statement.
         return m;
     };
 
@@ -129,10 +128,11 @@ class Vector3 {
       * @return this
       */
     normalize() {
-        // Insert your code here.
-        // This function should change this vector (this.elements) and not create a new vector.
+        var m = this.magnitude();
+        this.elements[0] /= m;
+        this.elements[1] /= m;
+        this.elements[2] /= m;
 
-        // Don't delete the return statement.
         return this;
     };
 }
