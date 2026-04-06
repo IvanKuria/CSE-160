@@ -94,7 +94,7 @@ class Vector3 {
       */
     static dot(other1, other2) {
         // Insert your code here.
-        let d = 0; // Modify this line to calculate this vector's magnitude.
+        let d = other1.elements[0] * other2.elements[0] + other1.elements[1] * other2.elements[1] + other1.elements[2] * other2.elements[2];
 
         // Don't delete the return statement.
         return d;
@@ -104,10 +104,14 @@ class Vector3 {
       * Calcualte the cross product between this vector and other.
       * @return new vector
       */
+    
+    // claude code wrote this function
     static cross(other1, other2) {
         // Insert your code here.
         // This function should create and return a new vector.
-        let v3 = new Vector3(); // Modify this line to calculate cross product between other1 and other2.
+        let a = other1.elements;
+        let b = other2.elements;
+        let v3 = new Vector3([a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0]]);
 
         // Don't delete the return statement.
         return v3;
@@ -127,6 +131,8 @@ class Vector3 {
       * Normalize this vector.
       * @return this
       */
+
+    // claude code wrote this function
     normalize() {
         var m = this.magnitude();
         this.elements[0] /= m;

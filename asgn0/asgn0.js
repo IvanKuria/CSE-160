@@ -91,7 +91,25 @@ function handleDrawOperationEvent() {
         v4.normalize();
         drawVector(v3, "green");
         drawVector(v4, "green");
+    } else if (op == "a-btw") {
+        console.log("Angle: " + angleBetween(v1, v2));
+    } else if (op == "area") {
+        console.log("Area of the triangle: " + areaTriangle(v1, v2));
     }
+}
+
+// claude code wrote this function
+function angleBetween(v1, v2) {                                                                                                         
+  var d = Vector3.dot(v1, v2);                                                                                                 
+  var angle = Math.acos(d / (v1.magnitude() * v2.magnitude()));                                                                       
+  
+  return angle * (180 / Math.PI);                                                                                              
+}                
+
+// claude code wrote this function
+function areaTriangle(v1, v2) {
+    var cross = Vector3.cross(v1, v2);
+    return cross.magnitude() / 2;
 }
 
 // main();
