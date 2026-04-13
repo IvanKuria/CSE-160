@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 1: Painting</title>
+  </head>
+
+  <body onload="main()">
+    <p>Ivan Kuria | ikuria@ucsc.edu</p>
+    <p>Notes to Grader: Awesomeness feature — Fragment shader filter system! Click the filter buttons (Grayscale, Sepia, Invert, Neon) to apply real-time color transformations to all shapes on the canvas. Filters are applied in the GPU via GLSL uniforms.</p>
+
+    <canvas id="webgl" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <div>
+      <button id="clearButton">Clear Canvas</button>
+    </div>
+
+    <div>
+      <b>Shape:</b>
+      <button id="pointButton">Point</button>
+      <button id="triangleButton">Triangle</button>
+      <button id="circleButton">Circle</button>
+    </div>
+
+    <div>
+      <label>Red: <input type="range" id="redSlider" min="0" max="100" value="100"></label>
+      <label>Green: <input type="range" id="greenSlider" min="0" max="100" value="0"></label>
+      <label>Blue: <input type="range" id="blueSlider" min="0" max="100" value="0"></label>
+    </div>
+
+    <div>
+      <label>Size: <input type="range" id="sizeSlider" min="1" max="40" value="10"></label>
+    </div>
+
+    <div>
+      <label>Circle Segments: <input type="range" id="segmentSlider" min="3" max="100" value="10"></label>
+    </div>
+
+    <div>
+      <button id="drawPictureButton">Draw Picture</button>
+    </div>
+
+    <div>
+      <p><b>Hand-drawn reference (Raspberry Pi Zero 2W):</b></p>
+      <img src="IMG_1043.jpeg" alt="Hand-drawn Raspberry Pi Zero 2W" width="400">
+    </div>
+
+    <div>
+      <b>Filters:</b>
+      <button id="filterNormal">Normal</button>
+      <button id="filterGrayscale">Grayscale</button>
+      <button id="filterSepia">Sepia</button>
+      <button id="filterInvert">Invert</button>
+      <button id="filterNeon">Neon</button>
+    </div>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="asgn1.js"></script>
+  </body>
+</html>
