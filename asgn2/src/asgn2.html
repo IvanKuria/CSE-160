@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 2: 3-Humped Camel</title>
+    <style>
+      body { font-family: sans-serif; margin: 16px; }
+      canvas { border: 1px solid #888; display: block; margin-bottom: 8px; }
+      .ctrl { margin: 4px 0; }
+      label { display: inline-block; min-width: 140px; }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <p><b>Ivan Kuria</b> | ikuria@ucsc.edu</p>
+    <p>
+      <b>Notes to grader:</b> Creative twist — this camel has <b>3 humps</b>
+      instead of the standard 2 (middle hump is bigger).
+      <b>Drag the canvas</b> to rotate the camel.
+      <b>Shift+click</b> the canvas to trigger the special "hump-wave dance"
+      poke animation — the three humps bounce in a wave while the legs do a jig.
+      The 3-deep joint chain is body → neck → head → snout (the snout slider is
+      the third-level joint). Non-cube primitive: the humps are spheres.
+    </p>
+
+    <canvas id="webgl" width="500" height="500">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <div class="ctrl"><span id="fps">FPS: --</span></div>
+
+    <div class="ctrl">
+      <button id="animOn">Animation On</button>
+      <button id="animOff">Animation Off</button>
+    </div>
+
+    <div class="ctrl">
+      <label>Global rotate X:</label>
+      <input type="range" id="angleXSlider" min="-180" max="180" value="-10">
+    </div>
+    <div class="ctrl">
+      <label>Global rotate Y:</label>
+      <input type="range" id="angleYSlider" min="-180" max="180" value="25">
+    </div>
+    <div class="ctrl">
+      <label>Neck angle:</label>
+      <input type="range" id="neckSlider" min="-90" max="60" value="-25">
+    </div>
+    <div class="ctrl">
+      <label>Head angle:</label>
+      <input type="range" id="headSlider" min="-60" max="60" value="15">
+    </div>
+    <div class="ctrl">
+      <label>Snout angle (3rd joint):</label>
+      <input type="range" id="snoutSlider" min="-45" max="45" value="0">
+    </div>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="Cube.js"></script>
+    <script src="Sphere.js"></script>
+    <script src="Cylinder.js"></script>
+    <script src="Camel.js"></script>
+    <script src="asgn2.js"></script>
+  </body>
+</html>
