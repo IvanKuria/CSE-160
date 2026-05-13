@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Asgn3 — Desert Oasis (Ivan Kuria)</title>
+  <style>
+    body { margin: 0; background: #111; color: #eee; font-family: -apple-system, sans-serif; overflow: hidden; }
+    #wrap { position: relative; width: 100vw; height: 100vh; }
+    canvas { display: block; width: 100%; height: 100%; background: #000; cursor: crosshair; }
+    #hud {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(0,0,0,0.55); padding: 10px 14px; border-radius: 6px;
+      font-size: 14px; line-height: 1.4; pointer-events: none; user-select: none;
+    }
+    #help {
+      position: absolute; bottom: 12px; left: 12px; right: 12px;
+      background: rgba(0,0,0,0.55); padding: 8px 12px; border-radius: 6px;
+      font-size: 12px; pointer-events: none;
+    }
+    #title { font-weight: bold; color: #ffd27a; }
+    #win { color: #7fffa0; font-weight: bold; }
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="webgl" width="960" height="600">Your browser does not support canvas.</canvas>
+  <div id="hud">
+    <div id="title">Desert Oasis</div>
+    <div>FPS: <span id="fps">--</span></div>
+    <div>Jugs: <span id="jugs">0</span> / 3</div>
+    <div>Camel: <span id="camelProgress">--</span></div>
+    <div>Time: <span id="phase">dawn</span></div>
+    <div id="win"></div>
+  </div>
+  <div id="help">
+    Click canvas to capture mouse · WASD move · QE turn · Mouse look · Left-click delete block · Right-click add block · Esc to release
+  </div>
+</div>
+
+<script src="../lib/webgl-utils.js"></script>
+<script src="../lib/webgl-debug.js"></script>
+<script src="../lib/cuon-utils.js"></script>
+<script src="../lib/cuon-matrix-cse160.js"></script>
+<script src="Cube.js"></script>
+<script src="Camera.js"></script>
+<script src="Textures.js"></script>
+<script src="World.js"></script>
+<script src="Camel.js"></script>
+<script src="asgn3.js"></script>
+<script>window.addEventListener('load', main);</script>
+</body>
+</html>
