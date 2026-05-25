@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 4: Lighting (Phong)</title>
+    <style>
+      body { font-family: sans-serif; margin: 16px; }
+      canvas { border: 1px solid #888; display: block; margin-bottom: 8px; }
+      .ctrl { margin: 4px 0; }
+      label { display: inline-block; min-width: 150px; }
+      .group { margin: 8px 0; padding: 6px 8px; background: #f3f3f3; border-radius: 6px; }
+      button { margin-right: 4px; }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <p><b>Ivan Kuria</b> | ikuria@ucsc.edu</p>
+    <p>
+      <b>Notes to grader:</b> Phong lighting (ambient + diffuse + specular) on the
+      3-humped camel scene. Objects: ground, the camel (animal), a cube, two spheres,
+      and a loaded <b>.obj</b> torus-knot model. A <b>point light</b> orbits the scene
+      (marker cube shows its location) plus a <b>spotlight</b> (cool-blue cone) — each
+      can be toggled independently. Use the buttons below to toggle lighting and normal
+      visualization; sliders move the light, change its height, and change its color.
+      <b>Drag the canvas</b> (or the rotate sliders) to orbit the camera.
+      <b>Shift+click</b> to poke the camel.
+    </p>
+
+    <canvas id="webgl" width="700" height="560">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <div class="ctrl"><span id="fps">FPS: --</span></div>
+
+    <div class="group">
+      <b>Lighting</b>
+      <div class="ctrl">
+        <button id="lightOn">Lighting On</button>
+        <button id="lightOff">Lighting Off</button>
+        <button id="normOn">Normals On</button>
+        <button id="normOff">Normals Off</button>
+      </div>
+      <div class="ctrl">
+        <button id="pointToggle">Toggle Point Light</button>
+        <button id="spotToggle">Toggle Spotlight</button>
+        <button id="spinToggle">Toggle Light Spin</button>
+      </div>
+      <div class="ctrl">
+        <label>Light angle:</label>
+        <input type="range" id="lightAngleSlider" min="0" max="360" value="0">
+      </div>
+      <div class="ctrl">
+        <label>Light height:</label>
+        <input type="range" id="lightHeightSlider" min="-1" max="5" step="0.05" value="2.2">
+      </div>
+      <div class="ctrl">
+        <label>Light color (hue):</label>
+        <input type="range" id="lightHueSlider" min="0" max="360" value="45">
+      </div>
+    </div>
+
+    <div class="group">
+      <b>Camera &amp; Camel</b>
+      <div class="ctrl">
+        <button id="animOn">Animation On</button>
+        <button id="animOff">Animation Off</button>
+      </div>
+      <div class="ctrl">
+        <label>Camera pitch (X):</label>
+        <input type="range" id="angleXSlider" min="-85" max="85" value="-12">
+      </div>
+      <div class="ctrl">
+        <label>Camera yaw (Y):</label>
+        <input type="range" id="angleYSlider" min="-180" max="180" value="30">
+      </div>
+      <div class="ctrl">
+        <label>Neck angle:</label>
+        <input type="range" id="neckSlider" min="-90" max="60" value="-25">
+      </div>
+      <div class="ctrl">
+        <label>Head angle:</label>
+        <input type="range" id="headSlider" min="-60" max="60" value="15">
+      </div>
+      <div class="ctrl">
+        <label>Snout angle:</label>
+        <input type="range" id="snoutSlider" min="-45" max="45" value="0">
+      </div>
+    </div>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="Cube.js"></script>
+    <script src="Sphere.js"></script>
+    <script src="Cylinder.js"></script>
+    <script src="Camel.js"></script>
+    <script src="Model.js"></script>
+    <script src="asgn4.js"></script>
+  </body>
+</html>
