@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSE 160 — Asgn5: UC Santa Cruz (Three.js)</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #87b5d8; }
+    #c { width: 100%; height: 100%; display: block; }
+
+    /* On-screen info / legend overlay */
+    #info {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      max-width: 320px;
+      padding: 12px 14px;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #fff;
+      background: rgba(20, 28, 24, 0.62);
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+      user-select: none;
+    }
+    #info h1 { margin: 0 0 6px; font-size: 15px; letter-spacing: .2px; }
+    #info b { color: #ffe46b; }
+    #info .wow { color: #ffd34d; }
+    #info small { opacity: .82; }
+
+    /* Loading splash, hidden once the scene is ready */
+    #loading {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: -apple-system, system-ui, sans-serif;
+      font-size: 18px; color: #fff;
+      background: #1c2a22;
+      transition: opacity .6s ease;
+    }
+    #loading.hidden { opacity: 0; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <div id="info">
+    <h1>🍌 UC Santa Cruz — Redwood Clearing</h1>
+    A Three.js world: redwoods, campus buildings, a bell tower,
+    roaming <b>deer</b>, and the campus <b>banana slug</b> mascot.<br />
+    <span class="wow">WOW:</span> the slug crawls the path with a
+    sine-wave undulating body.<br />
+    <small>Drag to orbit · scroll to zoom · right-drag to pan</small>
+  </div>
+
+  <div id="loading">Loading the forest…</div>
+
+  <!--
+    Three.js is loaded as ES modules from a CDN via an import map — no npm,
+    no build step. The version is pinned (r160) so the addons (OrbitControls,
+    GLTFLoader) match the core exactly. All asset paths are RELATIVE so the
+    page works when served from a GitHub Pages subpath.
+  -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module" src="./asgn5.js"></script>
+</body>
+</html>
