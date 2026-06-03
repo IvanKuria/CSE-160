@@ -1,4 +1,6 @@
 // =============================================================================
+// NOTE: This code was written by Claude (Anthropic's Claude Code AI assistant).
+// =============================================================================
 // CSE 160 — Assignment 5 : A 3D World with Three.js
 // Theme: UC Santa Cruz — a redwood-forest clearing with campus buildings,
 //        a bell tower, roaming deer, an ocean-sky skybox, and the campus
